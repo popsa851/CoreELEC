@@ -1,0 +1,12 @@
+[Unit]
+Description=AceList Script
+Requires=network-online.target
+After=network-online.target
+Before=kodi.service
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/bin/acelist.py
+ExecStop=/bin/kill -TERM $MAINPID
+
+[Install]
+WantedBy=kodi.target
