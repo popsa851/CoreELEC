@@ -49,11 +49,10 @@ class Logos(object):
 # Класс списка каналов
 class TtvChannel(object):
     """__init__() functions as the class constructor"""
-    def __init__(self, name=None, cat=None, fname=None, cid=None):
+    def __init__(self, name=None, cat=None, url=None):
         self.name = name
         self.cat = cat
-        self.fname = fname
-        self.cid = cid
+        self.url = url
 
 
 def printRAW(*Text):
@@ -61,6 +60,19 @@ def printRAW(*Text):
     print(*Text, file=RAWOut)
     RAWOut.flush()
     RAWOut.close()
+
+categories = {'educational':u'Познавательные',
+              'informational':u'Новостные',
+              'entertaining': u'Общие',
+              'movies':u'Фильмы',
+              'kids':u'Детские',
+              'regional':u'Региональные',
+              'documentaries':u'Познавательные',
+              'sport':u'Спорт',
+              'religion':u'Религия',
+              'music':'Музыкальные',
+              'erotic_18_plus':u'Эротика',
+              'webcam':u'Другое'}
 
 
 # Append fav file to list
@@ -94,28 +106,27 @@ for logo in logos_json:
 #    print('Can`t download')
 
 try:
-    with open(json_path + 'acelive.json', 'r', encoding='utf-8') as read_file:
+    with open(json_path + 'as.json', 'r', encoding='utf-8') as read_file:
         data = json.load(read_file)
 except IOError:
     data = None
     print("File not found")
 
 # Создаем лист объектов и заполняем его
-ttv_channel_list = []
+channel_list = data['channels']
+new_channel_list = []
 
 
 # Ищем имя канала в списке избранного
 with codecs.open(fav_path + 'fav_full.txt', 'w', encoding='utf-8') as origin_fav:
-    for item in data:
-        if item["source"] == 'ttv.json':  # Провйдер ttv
-
-            ttv_channel_list.append(TtvChannel(item["name"],item["cat"],item["fname"],item["cid"]))
-            origin_fav.write(item['name']+'\n')
+    for item in channel_list:
+        new_channel_list.append(TtvChannel(item["name"],categories.get(item["cat"],u'Без группы'),item["url"]))
+        origin_fav.write(item['name']+'\n')
 
 def byName_key(item):
     return item.name
 
-sorted_list = sorted(ttv_channel_list, key=byName_key)
+sorted_list = sorted(new_channel_list, key=byName_key)
 
 with codecs.open(list_path + 'playlist.m3u', 'w', encoding='utf-8') as acelive:
     acelive.write('#EXTM3U\n')
@@ -125,7 +136,7 @@ with codecs.open(list_path + 'playlist.m3u', 'w', encoding='utf-8') as acelive:
             string_logo_url = ''.join(logo_url)
 
             acelive.write('#EXTINF:-1 group-title='+'"'+ttv.cat+'" tvg-logo="'+string_logo_url+'", '+ttv.name+'\n')
-            acelive.write('http://'+ace_ip+':'+ace_port+'/ace/getstream?url=http://91.92.66.82/trash/ttv-list/acelive/'+ttv.fname + '\n')
+            acelive.write('http://'+ace_ip+':'+ace_port+'/ace/getstream?id='+ttv.url + '\n')
 print('Playlist successfully created')
 
 

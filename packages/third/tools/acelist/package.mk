@@ -26,5 +26,5 @@ makeinstall_target() {
 }
 
 post_install() {
-    enable_service acelist.service
+    enable_service acelist.timer
 }

@@ -1,12 +1,20 @@
 [Unit]
 Description=AceList Script
-Requires=network-online.target
-After=network-online.target
-Before=kodi.service
+#Requires=network-online.target
+#After=network-online.target
+#Before=kodi.service
 
 [Service]
-ExecStart=/usr/bin/python3 /usr/bin/acelist.py
-ExecStop=/bin/kill -TERM $MAINPID
+ExecStart=/storage/.config/acelist/start.sh
+#ExecStop=/bin/kill -TERM $MAINPID
 
-[Install]
-WantedBy=kodi.target
+#[Timer]
+# Run after booting one minute
+#OnBootSec=1min
+# Run every one hour or one munite
+# OnUnitActiveSec=1h
+#OnUnitActiveSec=30min
+#Unit=acelist.service
+
+#[Install]
+#WantedBy=kodi.target
