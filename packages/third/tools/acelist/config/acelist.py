@@ -126,7 +126,7 @@ with codecs.open(list_path + 'playlist.m3u', 'w', encoding='utf-8') as acelive:
 
             acelive.write('#EXTINF:-1 group-title='+'"'+ttv.cat+'" tvg-logo="'+string_logo_url+'", '+ttv.name+'\n')
             acelive.write('http://'+ace_ip+':'+ace_port+'/ace/getstream?url=http://91.92.66.82/trash/ttv-list/acelive/'+ttv.fname + '\n')
-print('Playlist successfully created')
+print('AceLive Playlist successfully created')
 
 
 
