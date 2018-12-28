@@ -27,25 +27,13 @@ case "$LINUX" in
     PKG_BUILD_PERF="no"
     ;;
   amlogic-3.14)
-<<<<<<< HEAD
-#<<<<<<< HEAD
-    PKG_VERSION="7a4f8a105fba00dc76d4fe8e7d810318aa8879e6"
-    PKG_SHA256="50bb4e5134757a142a7db25d4af0d12cf4a60756a641162177e36752c80b4964"
-#=======
-#    PKG_VERSION="acb30e2e3f557d1179e50f28e467122085044599"
-#    PKG_SHA256="3c4445876e32277a6d481774d486452b95fbbf6cf7721e1450480dd27dfcae04"
-#>>>>>>> upstream/master
-=======
     PKG_VERSION="5473722388e06fc46b47a036c2fde36757f350ba"
     PKG_SHA256="1e64d2dbe52c5a0fad29c91df6d1765663cb4cdb46fbb48161ca52191b7471c8"
->>>>>>> upstream/master
     PKG_URL="https://github.com/CoreELEC/linux-amlogic/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET aml-dtbtools:host"
     PKG_BUILD_PERF="no"
     ;;
-<<<<<<< HEAD
-=======
   rockchip-4.4)
     PKG_VERSION="aa8bacf821e5c8ae6dd8cae8d64011c741659945"
     PKG_SHA256="a2760fe89a15aa7be142fd25fb08ebd357c5d855c41f1612cf47c6e89de39bb3"
