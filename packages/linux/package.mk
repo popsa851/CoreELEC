@@ -27,6 +27,7 @@ case "$LINUX" in
     PKG_BUILD_PERF="no"
     ;;
   amlogic-3.14)
+<<<<<<< HEAD
 #<<<<<<< HEAD
 #    PKG_VERSION="7a4f8a105fba00dc76d4fe8e7d810318aa8879e6"
 #    PKG_SHA256="50bb4e5134757a142a7db25d4af0d12cf4a60756a641162177e36752c80b4964"
@@ -34,11 +35,36 @@ case "$LINUX" in
     PKG_VERSION="acb30e2e3f557d1179e50f28e467122085044599"
     PKG_SHA256="3c4445876e32277a6d481774d486452b95fbbf6cf7721e1450480dd27dfcae04"
 #>>>>>>> upstream/master
+=======
+    PKG_VERSION="5473722388e06fc46b47a036c2fde36757f350ba"
+    PKG_SHA256="1e64d2dbe52c5a0fad29c91df6d1765663cb4cdb46fbb48161ca52191b7471c8"
+>>>>>>> upstream/master
     PKG_URL="https://github.com/CoreELEC/linux-amlogic/archive/$PKG_VERSION.tar.gz"
     PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
     PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET aml-dtbtools:host"
     PKG_BUILD_PERF="no"
     ;;
+<<<<<<< HEAD
+=======
+  rockchip-4.4)
+    PKG_VERSION="aa8bacf821e5c8ae6dd8cae8d64011c741659945"
+    PKG_SHA256="a2760fe89a15aa7be142fd25fb08ebd357c5d855c41f1612cf47c6e89de39bb3"
+    PKG_URL="https://github.com/rockchip-linux/kernel/archive/$PKG_VERSION.tar.gz"
+    PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
+    ;;
+  raspberrypi)
+    PKG_VERSION="e75aca6e66f6091dd3b9c316750025c8e9684f16" # 4.19.12
+    PKG_SHA256="0f29fb52dc4d7fd705c9215e8a910a6e854b8014e697bdd7b6ce4854d7e342f4"
+    PKG_URL="https://github.com/raspberrypi/linux/archive/$PKG_VERSION.tar.gz"
+    PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
+    ;;
+  *)
+    PKG_VERSION="4.19.12"
+    PKG_SHA256="4d81ac539d62617f5b52f25971749d8c6d3a200deee76898bb99be8492999b77"
+    PKG_URL="https://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
+    PKG_PATCH_DIRS="default"
+    ;;
+>>>>>>> upstream/master
 esac
 
 PKG_KERNEL_CFG_FILE=$(kernel_config_path)
