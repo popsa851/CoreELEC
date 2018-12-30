@@ -52,7 +52,7 @@ case "$LINUX" in
     PKG_URL="https://www.kernel.org/pub/linux/kernel/v4.x/$PKG_NAME-$PKG_VERSION.tar.xz"
     PKG_PATCH_DIRS="default"
     ;;
->>>>>>> upstream/master
+
 esac
 
 PKG_KERNEL_CFG_FILE=$(kernel_config_path)
