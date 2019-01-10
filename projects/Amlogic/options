@@ -131,7 +131,7 @@
     ATVCLIENT_SUPPORT="no"
 
   # Amlogic IR remote support (yes / no)
-    AMREMOTE_SUPPORT="no"
+    AMREMOTE_SUPPORT="yes"
 
   # build and install iSCSI support - iscsistart (yes / no)
     ISCSI_SUPPORT="no"
@@ -168,7 +168,11 @@
 #    DRIVER_ADDONS=""
 
   # add OOTB support for IR remote
-#    IR_REMOTE_KEYMAPS="$IR_REMOTE_KEYMAPS m8s"
+
+    IR_REMOTE_KEYMAPS="$IR_REMOTE_KEYMAPS m8s tanix"
+#>>>>>>> upstream/master
+#=======
+#    IR_REMOTE_KEYMAPS="$IR_REMOTE_KEYMAPS odroid wetek_hub wetek_play_2 tanix kvim2"
 #>>>>>>> upstream/master
 
   # build with entware installer

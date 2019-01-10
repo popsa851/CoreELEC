@@ -193,6 +193,7 @@ make_target() {
     rm -rf $BUILD/initramfs
     $SCRIPTS/install initramfs
 
+
     if [ "$KERNEL_EXTRA_DEPENDS_TARGET" = "device-trees-amlogic" ]; then
       $SCRIPTS/clean device-trees-amlogic
       $SCRIPTS/build device-trees-amlogic
