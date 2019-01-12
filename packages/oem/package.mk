@@ -1,7 +1,3 @@
-################################################################################
-#      This file is part of Alex@ELEC - http://www.alexelec.in.ua
-#      Copyright (C) 2011-present Alexandr Zuyev (alex@alexelec.in.ua)
-################################################################################
 
 PKG_NAME="oem"
 PKG_VERSION=""
@@ -15,7 +11,7 @@ PKG_LONGDESC="OEM: Metapackage for various OEM packages"
 
 # torrent services
   PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET acelist"
-#  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET noxbit"
+  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET third/tools/mc"
 #  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET acestream-aml"
 #  PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET transmission"
 
