@@ -1,8 +1,6 @@
 
 import json
 import codecs
-import urllib.error
-import urllib.request
 import configparser
 
 
@@ -96,14 +94,6 @@ logos_list = []
 for logo in logos_json:
     logos_list.append(Logos(name=logo["name"], link=logo["link"]))
 
-# Download json from pomoyka.win
-#try:
-#    acelive_json = urllib.request.urlopen("http://"+pomoyka_url+"/trash/ttv-list/acelive.json").read()
-#    f = open(json_path + 'acelive.json', 'wb')
-#    f.write(acelive_json)
-#    f.close()
-#except urllib.error.URLError:
-#    print('Can`t download')
 
 try:
     with open(json_path + 'as.json', 'r', encoding='utf-8') as read_file:
@@ -118,10 +108,9 @@ new_channel_list = []
 
 
 # Ищем имя канала в списке избранного
-with codecs.open(fav_path + 'fav_full.txt', 'w', encoding='utf-8') as origin_fav:
-    for item in channel_list:
-        new_channel_list.append(TtvChannel(item["name"],categories.get(item["cat"],u'Без группы'),item["url"]))
-        origin_fav.write(item['name']+'\n')
+for item in channel_list:
+    new_channel_list.append(TtvChannel(item["name"],categories.get(item["cat"],u'Без группы'),item["url"]))
+
 
 def byName_key(item):
     return item.name
@@ -135,7 +124,7 @@ with codecs.open(list_path + 'contentId.m3u', 'w', encoding='utf-8') as acelive:
             logo_url =  [x.link for x in logos_list if x.name == ttv.name]
             string_logo_url = ''.join(logo_url)
 
-            acelive.write('#EXTINF:-1 group-title='+'"'+ttv.cat+'" tvg-logo="'+string_logo_url+'", '+ttv.name+'\n')
+            acelive.write('#EXTINF:-1 group-title='+'"'+ttv.cat+'" tvg-logo="'+string_logo_url+'",'+ttv.name+'\n')
             acelive.write('http://'+ace_ip+':'+ace_port+'/ace/getstream?id='+ttv.url + '\n')
 print('Playlist successfully created')
 

@@ -179,7 +179,6 @@ m2o Tv (PlayList 24)
 Синергия ТВ (PlayList 24)
 Трофей (1080p) (PlayList 24)
 Шансон ТВ (PlayList 24)
-#0
 1 1
 100AutoMoto TV
 14 channel israel (ESER)

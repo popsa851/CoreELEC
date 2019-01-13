@@ -13,8 +13,8 @@ make_target() {
 }
 
 makeinstall_target() {
-  mkdir -p $INSTALL/usr/bin
-    cp $PKG_DIR/scripts/* $INSTALL/usr/bin
+#  mkdir -p $INSTALL/usr/bin
+#    cp $PKG_DIR/scripts/* $INSTALL/usr/bin
   mkdir -p $INSTALL/usr/config/acelist
 #    cp noxbit.cfg $INSTALL/usr/config/acelist
     cp $PKG_DIR/config/* $INSTALL/usr/config/acelist

@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if ! [ -d /storage/m3u/ ]; then
+mkdir -p /storage/m3u
+fi
+
 cd /storage/.config/acelist
 FNAME="acelive.json"
 URL="http://91.92.66.82/trash/ttv-list/acelive.json"
